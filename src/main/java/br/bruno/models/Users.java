@@ -1,8 +1,10 @@
 package br.bruno.models;
 
-import java.util.UUID;
-
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,9 +12,19 @@ import lombok.Setter;
 @Getter @Setter
 public class Users {
 
-    private UUID id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    @Column(name = "name", nullable = false)
     private String name;
+
+    @Column(name = "email", nullable = false)
     private String email;
+
+    @Column(name = "password")
     private String password;
-    private boolean is_verify;
+
+    @Column(name = "is_verify")
+    private boolean isVerify = false;
 }
