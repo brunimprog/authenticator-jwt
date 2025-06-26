@@ -21,7 +21,7 @@ public class UserService {
         Users user = new Users();
         user.setName(users.getName());
         user.setEmail(users.getEmail());
-        user.setPassword(passwordService.hashPassoword(users.getPassword()));
+        user.setPassword(passwordService.hashPassword(users.getPassword()));
         validateData(user);
         usersRepository.persist(user);
         return user;

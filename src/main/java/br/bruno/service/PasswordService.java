@@ -8,7 +8,7 @@ import jakarta.transaction.Transactional;
 @ApplicationScoped
 public class PasswordService {
 
-    public String hashPassoword(String password){
+    public String hashPassword(String password){
         return BCrypt.withDefaults().hashToString(12, password.toCharArray());
     }
     
